@@ -1,7 +1,3 @@
-* Finalise license choice
-* gitignore
-* bower ignore
-* npm ignore?
 * Version 0.5 preperation
 * Github publish
 * Full Documentation
