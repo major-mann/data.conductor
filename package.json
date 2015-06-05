@@ -1,0 +1,31 @@
+{
+  "name": "data.conductor",
+  "version": "0.5.0",
+  "description": "javascript data management utilities (with focus on angular, but angular not required)",
+  "main": "demo.js",
+  "directories": {
+    "lib": "src",
+    "doc": "doc",
+    "example": "demo"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "finalhandler": "^0.3.6",
+    "grunt": "^0.4.5",
+    "grunt-closurecompiler": "^0.9.9",
+    "grunt-contrib-concat": "^0.5.1",
+    "karma": "^0.12.32",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-jasmine": "^0.2.2",
+    "open": "0.0.5",
+    "serve-static": "^1.9.3"
+  },
+  "scripts": {
+    "test": "node node_modules/karma/bin/karma start karma.conf.js",
+    "start": "node demo.js",
+    "install": "node node_modules/bower/bin/bower install"
+  },
+  "author": "Calvin Mann",
+  "license": "GPL-3.0"
+}

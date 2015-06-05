@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Pager Demo</title>
+        <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.css' />
+        <link rel='stylesheet' href='app.css' />
+    </head>
+    <body>
+        <div ng-app='pagerDemo' class='container'>
+            <div ng-view></div>
+        </div>
+        <script src='../bower_components/jquery/dist/jquery.js'></script>
+        <script src='../bower_components/bootstrap/dist/js/bootstrap.js'></script>
+        <script src='../bower_components/lodash/lodash.min.js'></script>
+        <script src='waterline.criteria.js'></script>
+        <script src='../bower_components/angular/angular.js'></script>
+        <script src='../bower_components/angular-route/angular-route.js'></script>
+
+        <script src='../src/module.js'></script>
+        <script src='../src/object.storage.service.js'></script>
+        <script src='../src/adapter.service.js'></script>
+        <script src='../src/indexed.collection.service.js'></script>
+        <script src='../src/indexed.page.cache.service.js'></script>
+        <script src='../src/event.emitter.service.js'></script>
+        <script src='../src/indexed.page.cache.service.js'></script>
+        <script src='../src/loader.service.js'></script>
+        <script src='../src/indexed.pager.service.js'></script>
+        <script src='../src/queue.service.js'></script>
+
+        <script src='app.js'></script>
+        <script src='service/config.js'></script>
+        <script src='service/people.js'></script>
+        <script src='service/lunar.js'></script>
+        <!--<script src='directive/scroll.js'></script>-->
+        <script src='directive/ilist.js'></script>
+        <script src='directive/ilist.item.js'></script>
+        <script src='controller/index.js'></script>
+        <script src='controller/indexed.grid.js'></script>
+        <script src='controller/infinite.scroll.js'></script>
+    </body>
+</html>

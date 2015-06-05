@@ -1,0 +1,168 @@
+<div>
+    <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+        <!-- Brand and toggle get grouped for better mobile display -->
+            <div class='navbar-header'>
+                <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1'>
+                    <span class='sr-only'>Toggle navigation</span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+                <table class='table table-bordered'>
+                    <tbody>
+                        <tr>
+                            <td class='text-center'>Padding Low</td>
+                            <td class='text-center'>Padding High</td>
+                            <td class='text-center'>Page Size</td>
+                            <td class='text-center'>Count Mode</td>
+                            <td class='text-center'>Count</td>
+                        </tr>
+                        <tr class='text-center'>
+                            <td>
+                                <div class='form-group'>
+                                    <input type='number' class='form-control' placeholder='Low' style='width: 100px' ng-model='options.padLow'>
+                                </div>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <input type='number' class='form-control' placeholder='High' style='width: 100px' ng-model='options.padHigh'>
+                                </div>                                
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <input type='number' class='form-control' placeholder='Page Size' style='width: 100px' ng-model='options.pageSize'>
+                                </div>
+                            </td>
+                            <td>
+                                <select class='form-control' ng-model='options.countMode'>
+                                    <option>none</option>
+                                    <option>adapter</option>
+                                    <option>fixed</option>
+                                    <option>detect</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <input type='number' class='form-control' placeholder='Count' style='width: 100px' ng-model='count'>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='text-center'>Resize Mode</td>
+                            <td class='text-center'>Max pages</td>
+                            <td class='text-center'>Parallel</td>
+                            <td class='text-center'>Batching</td>
+                            <td>Latency</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class='form-control' ng-model='options.resizeMode'>
+                                    <option>clear</option>
+                                    <option>maintain</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <input type='number' class='form-control' placeholder='Max' style='width: 100px' ng-model='options.maxPages'>
+                                </div>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <input type='number' class='form-control' placeholder='Parallel' style='width: 100px'  ng-model='options.parallel'>
+                                </div>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <input type="checkbox" ng-model='options.batching' />
+                                </div>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <input type='number' class='form-control' placeholder='Latency' style='width: 100px'  ng-model='latency'>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            
+                        </tr>
+                        <tr>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class='page-header'>
+        <h1>Indexed pager grid <small>Data which can be accessed by index</small></h1>
+    </div>
+    <table class='table table-hover'>
+        <thead>
+            <tr>
+                <th></th>
+                <th><a href='' ng-click='action.sort("first")'>First name</a><div ng-class='style.sort.first' /></th>
+                <th><a href='' ng-click='action.sort("last")'>Last name</a><div ng-class='style.sort.last' /></th>
+                <th><a href='' ng-click='action.sort("company")'>Company</a><div ng-class='style.sort.company'/></th>
+                <th><a href='' ng-click='action.sort("address")'>Address</a><div ng-class='style.sort.address'/></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat='person in current.data' ng-class='{ loading: current.loading }'>
+                <td>{{person.index}}</td>
+                <td>{{person.first}}</td>
+                <td>{{person.last}}</td>
+                <td>{{person.company}}</td>
+                <td>{{person.address}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan='4' class='text-center'>
+                    <nav>
+                        <ul class='pagination'>
+                            <li>
+                                <span>Page</span>
+                            </li>
+                            <li ng-class='{ disabled: style.first }'>
+                                <a href='' ng-click='action.prev()' aria-label='Previous'>
+                                    <span aria-hidden='true'>&laquo;</span>
+                                </a>
+                            </li>
+                            <li ng-repeat='pg in info' ng-class='{ active: pg.index === options.index }'>
+                                <a href='' ng-click='action.change(pg.index)'>{{pg.page}}</a>
+                            </li>
+                            <li ng-class='{ disabled: style.last }'>
+                                <a href='' ng-click='action.next()' aria-label='Next'>
+                                    <span aria-hidden='true'>&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <br />
+                        <ul class='pagination'>
+                            <li>
+                                <span>Cached</span>
+                            </li>
+                            <li ng-repeat='page in info' ng-class='{ active: page.cached }'>
+                                <span>{{page.page}}</span>
+                            </li>
+                        </ul>
+                        <br />
+                        <ul class='pagination'>
+                            <li>
+                                <span>Loading</span>
+                            </li>
+                            <li ng-repeat='page in info' ng-class='{ active: page.loading }'>
+                                <span>{{page.page}}</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

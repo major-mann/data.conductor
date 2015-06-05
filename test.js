@@ -1,0 +1,1 @@
+require('node_modules/karma/lib/cli').run();

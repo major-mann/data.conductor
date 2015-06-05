@@ -1,0 +1,25 @@
+{
+  "browser": true,
+  "esnext": true,
+  "globals": {
+    "console": false,
+    "describe": false,
+    "beforeEach": false,
+    "inject": false,
+    "it": false,
+    "expect": false,
+    "jasmine": false
+  },
+  "globalstrict": false,
+  "quotmark": true,
+  "undef": true,
+  "unused": true,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "latedef": "nofunc",
+  "maxerr": 1000,
+  "nonew": true,
+  "quotmark": "single"
+}

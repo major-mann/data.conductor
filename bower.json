@@ -1,0 +1,39 @@
+{
+  "name": "data.conductor",
+  "version": "0.5.0",
+  "authors": [
+    "Calvin Mann <calvinmann@gmail.com>"
+  ],
+  "license": "GPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "doc",
+    "demo",
+    "build",
+    "src",
+    "demo.js",
+    "test.js",
+    "gruntfile.js",
+    "karma.conf.js",
+    "package.json",
+    "readme.md",
+    "roadmap.md"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3.15",
+    "bootstrap": "~3.3.4",
+    "angular-route": "~1.3.15",
+    "lodash": "~3.9.3"
+  }
+}
