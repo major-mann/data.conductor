@@ -84,7 +84,7 @@ pager.setAdapter(adapter);
 * Once you have an adapter, you may create a pager, and set it's adapter to the previously created adapter.
 
 ```javascript
-var pager = new Pager();
+var pager = new IndexedPager();
 pager.setAdapter(myAdapter);
 //Set any other options here (See the docs for more info)
 pager.setIndex().then(function () {
