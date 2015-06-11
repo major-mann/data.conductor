@@ -8,7 +8,20 @@ At the time of this writing, the following main components are available (with m
 * [IndexedPagerService](#indexed-pager-service) - A service which allows automatic caching and dropping of data according to the currently set index.
 
 ##Getting Started
-In order to get started with this library, 2 steps are required.
+In order to get started with this library, 3 steps are required.
+
+* Download
+```
+git clone https://github.com/major-mann/data.conductor.git
+```
+Optionally, you may wish to develop, or view the demo, in which case you should do
+```
+npm install
+```
+Once done, launch the demo server and demo in your browser by
+```
+npm start
+```
 
 * Create an adapter to hook up to your data source. Here is some sample code to get you going.
 
@@ -101,5 +114,6 @@ pager.setIndex().then(function () {
     }
 });
 ```
+To view the full capabilities, launch the server by doing `npm install && npm start`
 
 For more information, see the [documentation](doc/index.md).
