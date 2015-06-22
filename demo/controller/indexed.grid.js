@@ -8,7 +8,7 @@
 
     function indexedGridController($scope, $q, config, people, Pager) {
 
-        var pager, count, pageCount, hashes = { };
+        var pager, count, pageCount, hashes = { }, tags = [], tagValues = [];
 
         //Initialise the pager and set people as the adapter
         pager = new Pager();
@@ -19,6 +19,9 @@
             sort: 'first'
         });
 
+        people.request.then(noop, noop, onDataRequest);
+        people.response.then(noop, noop, onDataResponse);
+
         //Initially, report the count as massive
         count = pageCount = Number.MAX_SAFE_INTEGER || Number.MAX_VALUE;
 
@@ -27,6 +30,7 @@
         $scope.info = [];
         $scope.count = 0;
         $scope.latency = config.latency;
+        $scope.requests = [];
 
         //Initialise the pager options scope
         $scope.options = pager.state();
@@ -118,6 +122,31 @@
         /** Called when the sort value has changed and the data should be adapted */
         function onSortValueChanged() {
             $scope.options.filter = { sort: $scope.sortValue };
+        }
+
+        /** Called when data is requested from the people adapter */
+        function onDataRequest(info) {
+            var tag = info.tag,
+                filter = info.filter,
+                args = info.args,
+                request = {
+                    completed: false,
+                    skip: args.skip,
+                    count: args.limit
+                };
+            tags.push(tag);
+            tagValues.push(request);
+            $scope.requests.push(request);
+        }
+
+        /** Called when data is returned from the people adapter */
+        function onDataResponse(info) {
+            var tag = info.tag,
+                idx = tags.indexOf(tag),
+                value = tagValues[idx];
+            tags.splice(idx, 1);
+            tagValues.splice(idx, 1);
+            value.completed = true;
         }
 
         /**
@@ -317,6 +346,8 @@
             return res;
         }
 
+        /** Does nothing */
+        function noop() { }
     }
 
 }(window.angular.module('pagerDemo')));

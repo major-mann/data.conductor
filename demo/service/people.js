@@ -20,18 +20,36 @@
                 'Biogreen', 'K-dax', 'Lattax', 'Stim-fase', 'Unorancone', 'Betalex', 'Templane', 'goodlax',
                 'zotis', 'zamcon', 'trustity', 'Sol-tom', 'Jobin', 'Round-trans', 'treelab', 'saofax',
                 'Haytonlax', 'Vivatrans', 'Lamron', 'villahigh', 'Dingjob', 'Solzoflex', 'Tamfax'],
-            data;
+            request = $q.defer(),
+            response = $q.defer(),
+            data,
+            res;
 
         data = generateData(1000);
 
-        return {
+        //Create the return object
+        res = {
             find: find,
             count: count
         };
 
+        //Create request and response promises
+        res.request = request.promise;
+        res.response = response.promise;
+
+        return res;
+
         /** Searches the dataset for the given values */
         function find(filter, args) {
-            var d, tout, deferred = $q.defer();
+            var d, tout, deferred = $q.defer(), tag = { },
+                info = {
+                    tag: tag,
+                    filter: filter,
+                    args: args
+                };
+
+            request.notify(info);
+
             if (filter) {
                 d = wlFilter(data, filter).results;
                 if (filter.sort) {
@@ -44,6 +62,7 @@
             if (config.latency) {
                 tout = $timeout(function () {
                     deferred.resolve(d.slice(args.skip, args.skip + args.limit));
+                    response.notify(info);
                 }, config.latency);
                 if (args.cancel) {
                     args.cancel.then(function () {
@@ -53,6 +72,7 @@
                 }
             } else {
                 deferred.resolve(d.slice(args.skip, args.skip + args.limit));
+                response.notify(info);
             }
 
             return deferred.promise;

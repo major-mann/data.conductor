@@ -165,4 +165,9 @@
             </tr>
         </tfoot>
     </table>
+    <div id='requests'>
+        <div ng-repeat='req in requests' class='alert' ng-class='{ "alert-danger": !req.completed, "alert-success": req.completed }'>
+            Skip: {{req.skip}}. Count: {{req.count}}
+        </div>
+    </div>
 </div>
