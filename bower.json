@@ -4,6 +4,7 @@
   "authors": [
     "Calvin Mann <calvinmann@gmail.com>"
   ],
+  "main": "dist/js.data.manager.min.js",
   "license": "GPL-3.0",
   "ignore": [
     "**/.*",
