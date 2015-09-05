@@ -25,7 +25,7 @@
   "scripts": {
     "test": "node node_modules/karma/bin/karma start karma.conf.js",
     "start": "node demo.js",
-    "postinstall": "(node .bin/bower install) || (echo issue running bower. please run bower install manually)"
+    "postinstall": "(bower install) || (echo issue running bower. please run bower install manually)"
   },
   "author": "Calvin Mann",
   "license": "GPL-3.0"
