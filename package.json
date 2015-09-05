@@ -8,9 +8,10 @@
     "doc": "doc",
     "example": "demo"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "bower": "^1.4.1",
+  },
+  "devDependencies": {
     "finalhandler": "^0.3.6",
     "grunt": "^0.4.5",
     "grunt-closurecompiler": "^0.9.9",
