@@ -3724,8 +3724,8 @@
                         res.resolve(null);
                         break;
                     case COUNT_MODE.adapter:
-                        if (internal.loader.adapter().count) {
-                            internal.loader.adapter().count(self.filter())
+                        if (internal.loader.adapterObject().count) {
+                            internal.loader.adapterObject().count(self.filter())
                                 .then(res.resolve)
                                 .catch(res.reject);
                         } else {
