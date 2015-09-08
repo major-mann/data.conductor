@@ -1,6 +1,6 @@
 {
   "name": "data.conductor",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "javascript data management utilities (with focus on angular, but angular not required)",
   "main": "demo.js",
   "directories": {
