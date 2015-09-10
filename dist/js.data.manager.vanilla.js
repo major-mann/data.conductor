@@ -3064,7 +3064,7 @@
                             }
 
                             for (i = 0; i < command.commands.length; i++) {
-                                if (command.commands.index === index) {
+                                if (command.commands[i].index === index) {
                                     cancelQueueCommand(command.commands[i], 'cancelled');
                                 }
                             }
