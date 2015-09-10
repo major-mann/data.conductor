@@ -3391,6 +3391,9 @@
             this.batchMax = internal.loader.batchMax;
             this.setBatchMax = internal.loader.setBatchMax;
 
+            this.batchCancelMode = internal.loader.batchCancelMode;
+            this.setBatchCancelMode = internal.loader.setBatchCancelMode;
+
             this.loadMax = internal.loader.loadMax;
             this.setLoadMax = internal.loader.setLoadMax;
 
