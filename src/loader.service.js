@@ -983,7 +983,12 @@
                                 //Reject the promise returned by execute
                                 deferred.reject('cancelled');
                             }
-                            cancelQueueCommand(command.commands[index], 'cancelled');
+
+                            for (i = 0; i < command.commands.length; i++) {
+                                if (command.commands.index === index) {
+                                    cancelQueueCommand(command.commands[i], 'cancelled');
+                                }
+                            }
                         } else {
                             throw new Error('unrecognised batch cancel mode "' + self.batchCancelMode() + '"');
                         }
